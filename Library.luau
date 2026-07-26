@@ -458,6 +458,12 @@ do
 
         utility.dragify(holder)
 
+        services.InputService.InputBegan:Connect(function(input)
+            if input.KeyCode == library.keybind then
+                library:Toggle()
+            end
+        end)
+
         local title = utility.create("TextLabel", {
             ZIndex = 5,
             Size = UDim2.new(0, 0, 1, -2),
@@ -591,6 +597,7 @@ do
                 BackgroundTransparency = 1,
                 FontSize = Enum.FontSize.Size14,
                 TextSize = 14,
+                Text = "",
                 Parent = tabtoggles
             })
 
@@ -1514,6 +1521,7 @@ do
                         local function opencolorpicker()
                             if not opening then
                                 opening = true
+                                sectioncontent.ScrollingEnabled = false
 
                                 opened = not opened
 
@@ -1530,6 +1538,7 @@ do
                                     tween.Completed:Wait()
                                 end
 
+                                sectioncontent.ScrollingEnabled = true
                                 opening = false
                             end
                         end
@@ -2264,6 +2273,7 @@ do
                     local function opendropdown()
                         if not opening then
                             opening = true
+                            sectioncontent.ScrollingEnabled = false
 
                             opened = not opened
 
@@ -2286,6 +2296,7 @@ do
 
                             utility.tween(icon, { 0.2 }, { TextTransparency = 0, TextStrokeTransparency = 0 })
 
+                            sectioncontent.ScrollingEnabled = true
                             opening = false
                         end
                     end
@@ -3576,6 +3587,7 @@ do
                     local function opencolorpicker()
                         if not opening then
                             opening = true
+                            sectioncontent.ScrollingEnabled = false
 
                             opened = not opened
 
@@ -3592,6 +3604,7 @@ do
                                 tween.Completed:Wait()
                             end
 
+                            sectioncontent.ScrollingEnabled = true
                             opening = false
                         end
                     end

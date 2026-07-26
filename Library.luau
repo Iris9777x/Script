@@ -421,6 +421,11 @@ do
             end
         end
 
+        function watermarktypes:SetVisibility(bool)
+            watermark.Visible = bool
+            toggled = bool
+        end
+
         return watermarktypes
     end
 
@@ -1053,6 +1058,7 @@ do
                         BackgroundColor3 = Color3.fromRGB(255, 255, 255),
                         FontSize = Enum.FontSize.Size14,
                         TextSize = 14,
+                        Text = "",
                         TextColor3 = Color3.fromRGB(0, 0, 0),
                         Font = Enum.Font.SourceSans,
                         Parent = sectioncontent
